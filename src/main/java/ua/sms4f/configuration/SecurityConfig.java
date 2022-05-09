@@ -12,9 +12,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-                //.csrf().disable()
+                .csrf().disable()
                 .authorizeRequests()
-                .antMatchers("/**").permitAll();
-
+                //.antMatchers("/admin/edit").hasAnyAuthority("SUPERADMIN")
+                .antMatchers("/admin/**", "/all").hasAnyAuthority("ADMIN", "SUPERADMIN")
+                //.antMatchers("/user/**").hasAnyRole("USER", "ADMIN")
+                .antMatchers("/user/**").hasAnyAuthority("USER", "ADMIN")
+                .antMatchers("/registration").permitAll()
+                .antMatchers("/**").permitAll()
+                .and()
+                .formLogin()
+                .loginPage("/login")
+                .loginProcessingUrl("/perform-login")
+                .usernameParameter("userName")
+                .passwordParameter("passWord")
+                .defaultSuccessUrl("/");
     }
 }

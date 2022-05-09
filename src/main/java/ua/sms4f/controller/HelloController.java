@@ -17,4 +17,20 @@ public class HelloController {
 
         return "index";
     }
+
+    @GetMapping("/index")
+    public String index(){
+        return "redirect:/";
+    }
+
+    @GetMapping("/deny")
+    public String deny(){
+        return "/deny";
+    }
+
+    @GetMapping("/home")
+    public String home(Model model) {
+        model.addAttribute("title", "Home page");
+        return "home";
+    }
 }

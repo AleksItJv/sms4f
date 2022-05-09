@@ -8,6 +8,30 @@
     <meta charset="UTF-8">
 </head>
 <body>
-    <p>Start project</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2 sec:authorize="isAuthenticated()">HELLO MY FRIEND!!!</h2>
+            <h2 sec:authorize="!isAuthenticated()">Main page</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <p class="important">Click <a th:href="@{/home}"> here</a> to Home </p>
+        <p>Click <a th:href="@{/login}"> here</a> to Loggin </p>
+        <p th:text="${text}"></p>
+
+        <p>Click <a th:href="@{/login}"> here</a> to Loggin </p>
+        <p>Click <a th:href="@{/registration}"> here</a>to registration </p>
+        <p>Click <a th:href="@{/index}">here</a> to return main page</p>
+        <p>Click <a th:href="@{/user}"> here</a> to user page </p>
+        <p>Click <a th:href="@{/admin/}"> here</a> to admin page </p>
+
+<!--        <form action="/logout" method="post">
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+            <input type="submit" value="Sign Out"/>
+        </form>-->
+    </div>
+</div>
 </body>
 </html>
