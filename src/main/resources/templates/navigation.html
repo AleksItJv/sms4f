@@ -1,0 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Navigation</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div  th:fragment="logoutWithBackmm">  <!--style="width: 1000%;" class="float"-->
+    <div sec:authorize="isAuthenticated()" th:fragment="logout">
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign out">
+        </form>
+    </div>
+    <div sec:authorize="isAuthenticated()" th:fragment="backmm">
+        <form th:action="@{/index}" method="get">
+            <input type="submit" value="Back to Main">
+        </form>
+    </div>
+    <div sec:authorize="isAuthenticated()" th:fragment="backAdminPage">
+        <form th:action="@{/admin}" method="get">
+            <input type="submit" value="To AdminPage">
+        </form>
+    </div>
+</div>
+</body>
+</html>

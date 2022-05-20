@@ -62,18 +62,7 @@
             </form>
         </div>
     </div>
-    <div sec:authorize="isAuthenticated()">  <!--style="width: 1000%;" class="float"-->
-        <div> <!--style="float: left; width: 100px; height: 100px;"-->
-            <form th:action="@{/logout}" method="post">
-                <input type="submit" value="Sign out">
-            </form>
-        </div>
-        <div> <!--style="float: left; width: 100px; height: 100px;"-->
-            <form th:action="@{/index}" method="get">
-                <input type="submit" value="Back to Main">
-            </form>
-        </div>
-    </div>
+    <div th:insert="~{navigation::backmm}"></div>
 </div>
 
 <div class="back-gray">
