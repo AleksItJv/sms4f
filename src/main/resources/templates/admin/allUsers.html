@@ -1,0 +1,49 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+    <link rel="stylesheet" href="classpath:static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Users </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> User</th>
+                    <th> Position</th>
+                    <th> Roles</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${users.empty}">
+                    <td colspan="2"> No Users Available</td>
+                </tr>
+                <tr th:each="user : ${users}">
+                    <td><span th:text="${user.login}"> Username </span></td>
+                    <td><span th:text="${user.position}"> Position </span></td>
+                    <td><span th:text="${user.roles}">Roles</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <a class="btn btn-success" href="#" th:href="@{/admin/create}"> Add Users </a>
+            <a class="btn btn-primary" href="#" th:href="@{/admin/edit}" th:classappend="${users.empty} ? 'disabled' : ''"> Edit Users </a>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

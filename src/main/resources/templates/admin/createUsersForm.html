@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Create Users</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Create Users </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div > <!--class="col-md-6"-->
+            <a class="btn btn-info" href="#" th:href="@{/admin/all}"> Back to All Users </a>
+            <a class="btn btn-info" href="#" th:href="@{/admin/edit}"> Go to Edit Users </a>
+            <form action="#" class="form-horizontal" th:action="@{/admin/save}"
+                  th:object="${form}"
+                  method="post">
+                <fieldset>
+                    <span class="mrg-bot-10 pull-right">
+                        <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+                        <input type="reset" id="resetButton" class="btn btn-danger"  th:value="Reset"/> <!--name="reset"-->
+                    </span>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th> Login</th>
+                            <th> Password</th>
+                            <th> Position</th>
+                            <th> Roles</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:each="user, itemStat : *{users}">
+                            <td><input th:placeholder="Login + ' ' + ${itemStat.count}" th:field="*{users[__${itemStat.index}__].login}"/></td>
+                            <td><input th:placeholder="Password + ' ' + ${itemStat.count}" th:field="*{users[__${itemStat.index}__].password}"/></td>
+                            <td><input th:placeholder="Position + ' ' + ${itemStat.count}" th:field="*{users[__${itemStat.index}__].position}"/></td>
+                            <td><input th:placeholder="Roles + ' ' + ${itemStat.count}" th:field="*{users[__${itemStat.index}__].roles}"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="back-gray">
+    <h4>Grey Footer</h4>
+</div>
+</body>
+</html>

@@ -1,3 +1,38 @@
 body {
     color: #515177;
 }
+
+.important {
+    color: #06277a;
+}
+
+.mrg-bot-10 {
+    margin-bottom: 10px;
+}
+
+.mrg-left-20 {
+    margin-left: 20px;
+}
+
+.back-gray {
+    background-color: darkgray;
+    margin: 15px 25px;
+    padding: 15px;
+}
+
+/*Login form*/
+.btn-loggin {
+    margin: 15px 0;
+}
+
+.pass-lbl {
+    margin-left: 10px;
+}
+
+/*Table all users*/
+.table-all-users {
+    border: #eee536;
+    border: 1px;
+    margin: 10px 10px;
+    background-color: antiquewhite;
+}
