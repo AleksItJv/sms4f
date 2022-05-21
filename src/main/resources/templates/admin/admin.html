@@ -16,11 +16,7 @@
     <p>Click <a th:href="@{/index}">here</a> to return main page</p>
     <p>Click <a th:href="@{/user}"> here</a> to user page </p>
     <p>Click <a th:href="@{/admin/}"> here</a> to admin page </p>
-    <form action="/logout" method="post">
-        <!--<input type="hidden" name="_csrf" value="${_csrf.token}"/>-->
-        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-        <input type="submit" value="Sign Out"/>
-    </form>
+
     <!--<fieldset  class="table-all-users">
         <legend>Users Details</legend>
         <table>
@@ -46,7 +42,10 @@
     <p>List of Users -> <a th:href="@{/admin/all}">click here</a></p>
     <p>Create the Users -> <a th:href="@{/admin/create}">click here</a></p>
     <p>Edit User -> <a th:href="@{/admin/edit}">click here</a></p>
-    <div th:insert="~{navigation::logoutWithBackmm}"></div>
+    <div>
+        <div th:insert="~{navigation::logout}"></div>
+        <div th:insert="~{navigation::backmm}"></div>
+    </div>
 </div>
 </body>
 </html>

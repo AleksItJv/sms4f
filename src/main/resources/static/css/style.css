@@ -20,6 +20,19 @@ body {
     padding: 15px;
 }
 
+.my-container {
+    overflow: hidden;
+    width: 1000px;
+    height: 3000px;
+}
+
+.my-box {
+    white-space: nowrap;
+    background:#099;
+    float: left;
+    display:inline
+}
+
 /*Login form*/
 .btn-loggin {
     margin: 15px 0;

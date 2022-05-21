@@ -44,7 +44,7 @@
             </form>
         </div>
 
-        <div th:insert="~{navigation::logoutWithBackmm}"></div>
+        <div th:insert="~{navigation::logout}"></div>
 
         <div sec:authorize="isAuthenticated()">
             <!--This content is only shown to authenticated users.-->
@@ -59,6 +59,7 @@
             </div>
         </div>
     </div>
+
 </div>
 </body>
 </html>
