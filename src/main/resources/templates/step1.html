@@ -1,0 +1,65 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration step 1</title>
+</head>
+<body>
+<p>Начните регистрацию</p>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Start Registration </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div> <!--class="col-md-6"-->
+
+            <form action="#" class="form-horizontal" th:action="@{/registration/step1}"
+                  th:object="${clientsDetails}"
+                  method="post">
+                <fieldset>
+                    <span class="mrg-bot-10 pull-right">
+                        <input type="submit" id="submitButton" class="btn btn-success" th:value="Save">
+                        <input type="reset" id="resetButton" class="btn btn-danger" th:value="Reset"/>
+                        <!--name="reset"-->
+                    </span>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th> Last_name</th>
+                            <!--<th> UserDB</th>-->
+                            <th> First_name</th>
+                            <!--<th> Identification_number</th>-->
+                            <th> City</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr th:object="${clientsDetails}">
+                            <td><input th:placeholder="Login"
+                                       th:field="*{lastName}"/></td>
+                            <td><input th:placeholder="first_name"
+                                       th:field="*{firstName}"/></td>
+                            <!--<td><input th:placeholder="Identif"
+                                       th:field="*{identificationNumber}"/></td>
+                            <td><input th:placeholder="Passport"
+                                       th:field="*{passport}"/></td>-->
+                            <td><input th:placeholder="city"
+                                       th:field="*{city}"/></td>
+                            <td><input hidden
+                                       th:placeholder="User"
+                                       th:field="${clientsDetails.userDB}"
+                                       th:value="${clientsDetails.getUserDB()}"/></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

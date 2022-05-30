@@ -1,10 +1,31 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <!DOCTYPE html>
-<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Users</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 <body>
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>User page</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <p>Click <a th:href="@{/login}"> here</a>to Loggin </p>
+            <p>Click <a th:href="@{/registration}"> here</a>to registration </p>
+            <p>Click <a th:href="@{/index}">here</a>to return main page</p>
+            <p>Click <a th:href="@{/user}"> here</a>to user page </p>
+            <p>Click <a th:href="@{/admin}"> here</a>to admin page </p>
+        </div>
+    </div>
+    <div th:insert="~{navigation::backmm}"></div>
+</div>
 </body>
 </html>

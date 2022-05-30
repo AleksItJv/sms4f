@@ -44,8 +44,22 @@
                                        th:field="*{users[__${itemStat.index}__].password}"/></td>
                             <td><input th:placeholder="Position + ' ' + ${itemStat.count}"
                                        th:field="*{users[__${itemStat.index}__].position}"/></td>
-                            <td><input th:placeholder="Roles + ' ' + ${itemStat.count}"
-                                       th:field="*{users[__${itemStat.index}__].roles}"/></td>
+                            <!--<td><input th:placeholder="Roles + ' ' + ${itemStat.count}"
+                                       th:field="*{users[__${itemStat.index}__].roles}"/></td>-->
+                            <td>
+                                <ul>
+                                    <li>
+                                        <input id="role1" th:field="*{users[__${itemStat.index}__].roles}"
+                                               type="checkbox" value="USER"/>
+                                        <label for="role1">User</label>
+                                    </li>
+                                    <li>
+                                        <input id="role2" th:field="*{users[__${itemStat.index}__].roles}"
+                                               type="checkbox" value="ADMIN"/>
+                                        <label for="role2">Admin</label>
+                                    </li>
+                                </ul>
+                            </td>
                         </tr>
                         </tbody>
                     </table>

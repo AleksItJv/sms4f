@@ -3,20 +3,29 @@
       mlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>Registration</title>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 <body>
-
-<span th:if="${message != null}" th:text="${message}">Message: </span>
-
-<form action="/registration" method="post">
-  <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
-  <div><label> User Name : <input type="text" name="login"/> </label></div>
-  <div><label> Password: <input type="password" name="password"/> </label></div>
-
-  <div><input type="submit" value="Sign In"/></div>
-</form>
-<div th:insert="~{navigation::backmm}"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Registration </h1>
+        </div>
+        <span th:if="${message != null}" th:text="${message}">Message: </span>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="/registration" method="post">
+                <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"/>
+                <div><label> User Name : <input type="text" name="login"/> </label></div>
+                <div><label> Password: <input type="password" name="password"/> </label></div>
+                <div><input type="submit" value="Sign In"/></div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

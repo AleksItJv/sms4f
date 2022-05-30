@@ -1,0 +1,52 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Clients</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1> Clients </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th> Last Name</th>
+                    <th> First Name</th>
+                    <th> Ident Number</th>
+                    <th> Passport</th>
+                    <th> City</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${clients.empty}">
+                    <td colspan="2"> No Clients Available</td>
+                </tr>
+                <tr th:each="client : ${clients}">
+                    <td><span th:text="${client.lastName}"> LastName </span></td>
+                    <td><span th:text="${client.firstName}"> FirstName </span></td>
+                    <td><span th:text="${client.identificationNumber}"> Ident.Number</span></td>
+                    <td><span th:text="${client.passport}"> Passport</span></td>
+                    <td><span th:text="${client.city}"> City</span></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

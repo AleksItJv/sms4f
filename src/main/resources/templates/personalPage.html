@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Personal Page</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+</head>
+<header>
+    <div class="header-container">
+        <div class="header-row">
+            <p>first div</p>
+        </div>
+        <div class="header-row2">
+            <p th:text="${getName}"></p>
+        </div>
+    </div>
+</header>
+<body>
+
+<div class="container">
+    <div class="row">
+        <div class="">
+            <p th:text="${getName}"></p>
+            <p>next =></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="">
+            <p th:text="${getName2}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>

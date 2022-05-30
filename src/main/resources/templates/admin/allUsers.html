@@ -5,7 +5,7 @@
 <head>
     <meta charset="UTF-8">
     <title>All Users</title>
-    <link rel="stylesheet" href="classpath:static/css/style.css">
+    <link rel="stylesheet" href="../static/css/style.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
 </head>
 <body>
@@ -40,11 +40,14 @@
         </div>
         <div class="col-md-6">
             <a class="btn btn-success" href="#" th:href="@{/admin/create}"> Add Users </a>
-            <a class="btn btn-primary" href="#" th:href="@{/admin/edit}" th:classappend="${users.empty} ? 'disabled' : ''"> Edit Users </a>
+            <a class="btn btn-primary" href="#" th:href="@{/admin/edit}"
+               th:classappend="${users.empty} ? 'disabled' : ''"> Edit Users </a>
         </div>
     </div>
-    <div th:insert="~{navigation::backmm}"></div>
-    <div th:insert="~{navigation::backAdminPage}"></div>
+    <div class="mrg-top-10">
+        <div th:insert="~{navigation::backmm}"></div>
+        <div th:insert="~{navigation::backAdminPage}"></div>
+    </div>
 </div>
 
 </body>

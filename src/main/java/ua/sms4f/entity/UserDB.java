@@ -4,11 +4,12 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users") //, uniqueConstraints= @UniqueConstraint(columnNames={"id", "login"}))
 public class UserDB {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     long id;
+    @Column(name = "login", unique = true)
     private String login;
     private String password;
     private String position;
@@ -19,6 +20,12 @@ public class UserDB {
     private Set<Role> roles;
 
     public UserDB() {
+    }
+    public UserDB(String login, String password, String position, Set<Role> roles) {
+        this.login = login;
+        this.password = password;
+        this.position = position;
+        this.roles = roles;
     }
 
     public UserDB(long id, String login, String password, String position, Set<Role> roles) {
@@ -71,5 +78,16 @@ public class UserDB {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "UserDB{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", password='" + password + '\'' +
+                ", position='" + position + '\'' +
+                ", roles=" + roles +
+                '}';
     }
 }

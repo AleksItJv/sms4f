@@ -9,4 +9,5 @@ public interface CustomUserDBDetailsService extends UserDetailsService {
 
     List<UserDB> findAll();
     void saveAll(List<UserDB> users);
+
 }

@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import ua.sms4f.dto.UserCreationDTO;
+import ua.sms4f.entity.ClientsDetails;
 import ua.sms4f.entity.UserDB;
+import ua.sms4f.repository.ClientsDetailsRepository;
 import ua.sms4f.repository.UserDBRepository;
 import ua.sms4f.service.CustomUserDBDetailsService;
 
@@ -19,9 +21,11 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
 
-
     @Autowired
     private UserDBRepository userDBRepository;
+
+    @Autowired
+    private ClientsDetailsRepository clientsDetailsRepository;
 
     @Autowired
     private CustomUserDBDetailsService customUserDBDetailsService;
@@ -53,7 +57,7 @@ public class AdminController {
     }
 
     @PostMapping("/save")
-    public String saveBooks(@ModelAttribute UserCreationDTO form, Model model) {
+    public String saveUsers(@ModelAttribute UserCreationDTO form, Model model) {
 
         customUserDBDetailsService.saveAll(form.getUsers());
         model.addAttribute("users", customUserDBDetailsService.findAll());
@@ -62,12 +66,35 @@ public class AdminController {
     }
 
     @GetMapping("/edit")
-    public String showEditForm(Model model) {
+    public String showEditUsersForm(Model model) {
         List<UserDB> users = new ArrayList<>();
         customUserDBDetailsService.findAll().iterator().forEachRemaining(users::add);
 
         model.addAttribute("form", new UserCreationDTO(users));
         return "admin/editUsersForm";
+    }
+
+    @GetMapping("/createClients")
+    public String showCreateClientsForm(Model model) {
+
+        UserCreationDTO usersForm = new UserCreationDTO();
+        usersForm.addUser(new UserDB());
+        /*for (int i = 1; i <= 3; i++) {
+            if (usersForm.getUsers() != null) {
+                usersForm.addUser(new UserDB());
+            }
+        }*/
+        model.addAttribute("form", usersForm);
+        return "clients/createUsersForm";
+    }
+
+    @PostMapping("/saveClients")
+    public String saveClients(@ModelAttribute ClientsDetails clientsDetails, Model model) {
+
+        clientsDetailsRepository.save(clientsDetails);
+        model.addAttribute("clients", clientsDetailsRepository.findAll());
+
+        return "redirect:/clients/all";
     }
 }
 
